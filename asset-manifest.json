@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/yungrari/app002/static/css/main.f5e07169.css",
+    "main.js": "/yungrari/app002/static/js/main.95cffa01.js",
+    "static/js/787.fff8647e.chunk.js": "/yungrari/app002/static/js/787.fff8647e.chunk.js",
+    "index.html": "/yungrari/app002/index.html",
+    "main.f5e07169.css.map": "/yungrari/app002/static/css/main.f5e07169.css.map",
+    "main.95cffa01.js.map": "/yungrari/app002/static/js/main.95cffa01.js.map",
+    "787.fff8647e.chunk.js.map": "/yungrari/app002/static/js/787.fff8647e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5e07169.css",
+    "static/js/main.95cffa01.js"
+  ]
+}
