@@ -1,7 +1,7 @@
 {
   "name": "app002",
   "version": "0.1.0",
-  "homepage": "https://github.com/yungrari/app002",
+  "homepage": "https://yungrari.github.io/app002",
   "dependencies": {
     "@craco/craco": "^6.4.5",
     "@testing-library/jest-dom": "^5.14.1",
