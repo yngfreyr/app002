@@ -1,55 +1,111 @@
 import React, { useState } from 'react';
 import { Layout, Slider, Button } from 'antd';
-import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined } from '@ant-design/icons';
+import {
+  red,
+  volcano,
+  gold,
+  yellow,
+  lime,
+  green,
+  cyan,
+  blue,
+  geekblue,
+  purple,
+  magenta,
+  grey,
+} from '@ant-design/colors';
 
 import './App.less';
+
 import Carousel from './components/Carousel';
 import Grid from './components/Grid';
+import Drawer from './components/Drawer';
+import Form from './components/Form';
 
 const { Header, Content, Footer } = Layout;
 
+const allColors = [
+  ...red,
+  ...volcano,
+  ...gold,
+  ...yellow,
+  ...lime,
+  ...green,
+  ...cyan,
+  ...blue,
+  ...geekblue,
+  ...purple,
+  ...magenta,
+  ...grey,
+];
+
 const App: React.FC = () => {
-  const [showGridView, toggleGridView] = useState(false);
+  const [showCarouselView, toggleCarouselView] = useState(true);
+  const [showTransparent, toggleTransparent] = useState(true);
   const [rotation, setRotation] = useState(0);
+  const [width, setWidth] = useState('400px');
+  const [height, setHeight] = useState('500px');
+  const [perspective, setPerspective] = useState('2000px');
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
 
   const onChange = (value: number) => {
     setRotation(value * -3.6);
   };
 
   const onViewChange = () => {
-    toggleGridView((prev) => !prev);
+    toggleCarouselView((prev) => !prev);
+  };
+
+  const onFinish = (values: any) => {
+    setWidth(`${values.width.number}${values.width.unit}`);
+    setHeight(`${values.height.number}${values.height.unit}`);
+    setPerspective(`${values.perspective.number}${values.perspective.unit}`);
+  };
+
+  const onRandomBg = () => {
+    const randomColor = allColors[Math.floor(Math.random() * allColors.length)];
+    setBackgroundColor(randomColor);
+  };
+
+  const onTransparansy = () => {
+    toggleTransparent((prev) => !prev);
   };
 
   // TODO: ADD MESSAGE WITH KEYS AND SLIDER INFO
-  // TODO: ADD CUSTOMISE PROPS FORM
-  // TODO: ADD SLIDER MARKS
-  // ADD SWITCH RAGE MODE
+  // AND KEY SUPPORT OF COURSE
 
   return (
-    <Layout className='Layout'>
-      <Header className='Header'>
+    <Layout className='Layout' style={{ backgroundColor }}>
+      <Header className='Header' style={{ backgroundColor }}>
+        <Drawer>
+          <Form
+            onRandomBg={onRandomBg}
+            onTransparansy={onTransparansy}
+            onFinish={onFinish}
+          />
+        </Drawer>
+
         <Button
-          type='link'
+          style={{ background: 'transparent' }}
           icon={<AppstoreOutlined />}
           onClick={onViewChange}
-        ></Button>
-
-        <Button
-          type='link'
-          icon={<SettingOutlined />}
-          onClick={() => {}}
-        ></Button>
+        />
       </Header>
 
-      {showGridView ? (
-        <Grid />
-      ) : (
+      {showCarouselView ? (
         <>
-          <Content className='Content'>
-            <Carousel rotation={rotation} isTranparent />
+          <Content className='Content' style={{ backgroundColor }}>
+            <Carousel
+              width={width}
+              height={height}
+              perspective={perspective}
+              rotation={rotation}
+              isTranparent={showTransparent}
+            />
           </Content>
 
-          <Footer className='Footer'>
+          <Footer className='Footer' style={{ backgroundColor }}>
             <Slider
               defaultValue={rotation}
               tooltip={{
@@ -59,6 +115,8 @@ const App: React.FC = () => {
             />
           </Footer>
         </>
+      ) : (
+        <Grid style={{ backgroundColor }} />
       )}
     </Layout>
   );

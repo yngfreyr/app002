@@ -8,8 +8,8 @@ const gridStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-const App: React.FC = () => (
-  <Card>
+const App: React.FC<{ style: React.CSSProperties }> = ({ style }) => (
+  <Card style={style}>
     {ITEMS.map((item) => (
       <Card.Grid key={item.id} style={gridStyle}>
         <Image src={item.image} preview={false} />
