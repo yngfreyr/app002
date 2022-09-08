@@ -1,27 +1,37 @@
 @import '~antd/dist/antd.less';
 
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-header {
+.Layout {
   position: fixed;
-  top: 8px;
-  left: 8px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 60px auto 120px;
+  background-color: #ffffff;
 }
 
-.cell {
-  overflow: hidden;
-  padding: 42px 24px 50px;
-  color: #000000d9;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background-color: rgba(0, 0, 0, 0.02);
+.Header {
+  color: @blue-5;
+  background-color: #ffffff;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.Content {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.Footer {
+  display: flex;
+  flex-flow: column;
+  background-color: #ffffff;
+  padding-left: 16px;
+  padding-right: 16px;
 }
