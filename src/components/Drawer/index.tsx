@@ -18,7 +18,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
       <Button
         icon={<SettingOutlined />}
         onClick={showDrawer}
-        style={{ background: 'transparent' }}
+        style={{ background: 'transparent', zIndex: 10 }}
       />
 
       <Drawer

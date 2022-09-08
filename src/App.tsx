@@ -87,7 +87,7 @@ const App: React.FC = () => {
         </Drawer>
 
         <Button
-          style={{ background: 'transparent' }}
+          style={{ background: 'transparent', zIndex: 10 }}
           icon={<AppstoreOutlined />}
           onClick={onViewChange}
         />
